@@ -112,15 +112,6 @@ while True:
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
         cv2.putText(frame, "MAR: {:.2f}".format(mar), (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
-        if ear < blink_thresh:
-                count_frame += 1
-                cv2.putText(frame, "E: {}".format(count_frame), (90, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-
-        else:
-                if count_frame >= succ_frame:
-                    cv2.putText(frame, 'Blink Detected', (50, 50), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 200, 0), 1)
-                else:
-                    count_frame = 0
             
         if mar > MOUTH_AR_THRESH:
                 cv2.putText(frame, "Yawning!", (30,60),
